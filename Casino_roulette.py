@@ -6,8 +6,8 @@ max = [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
 zero = 0
 rate = 10
 money = 100
-lot = random.randint(0, 36)
 while True:
+    lot = random.randint(0, 36)
     print('Время ставок! \nКаждая ставка равна 10$ \nЕсли вы хотите пропустить ставку введите любую букву или число, где это требуется.')
     print(f'У вас {money}$')
     color = input('Ставка на красное или чёрное ')
@@ -29,15 +29,18 @@ while True:
         money -= 10
     else:
         pass
-    print(f'У вас {money}')
     
     if lot == zero:
         print('Выпало число 0!')
         if number == lot:
             print('Вы выиграли')
-            money += rate * 100
+            money += rate * 35
+    
     else:
         print(f'Выпавший номер: {lot}')
+        if number == lot:
+            print('Ставка зашла')
+            money += rate * 35
         if lot in red:
             print('Выигравшая ставка: красное')
             if color == 'красное':
@@ -58,14 +61,5 @@ while True:
             if minmax == 2:
                 print('Ставка зашла')
                 money += rate * 2
-        if lot % 2 == 0:
-            print('Выигравшая ставка: чётное')
-            if number % 2 == 0:
-                print('Ставка зашла')
-                money += rate * 2
-        elif lot % 2 == 0:
-            print('Выигравшая ставка: нечётное')
-            if number % 2 != 0:
-                print('Ставка зашла')
-                money += rate * 2
+        print(f'У вас {money}$')
 
