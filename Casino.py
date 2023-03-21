@@ -16,8 +16,9 @@ def offer_play():
         pass
 say_hi()
 offer_play()
+def exit(rate, money1):
+    if rate == 1 or money1 == 0:
+        offer_play()
+exit(rate = 1, money1 = 0)
 
-    
 
-
-    

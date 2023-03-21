@@ -1,11 +1,15 @@
 import random
 lot = ['банан', 'клубника', 'арбуз', 'груша', 'персик', 'вишня', 'лимон']
+
 def game_Jackpot():
+    global money
     print(f'Добро пожаловать на игру джекпот')
     money = int(input('Сколько у вас денег с собой? '))    
     while True:
-        rate = int(input('Чтобы сыграть введите стоимость ставки '))
-        if rate >= 0:
+        rate = int(input('Чтобы сыграть введите стоимость ставки, если хотите уйти введите "1" '))
+        if rate == 1:
+            break
+        elif rate >= 0:
             money -= rate
             print(f'У вас на счету {money}$')
             lot1 = random.randint(0, 6)
@@ -24,3 +28,5 @@ def game_Jackpot():
                 pass
             if money == 0:
                 break
+        elif rate == 50:
+            break
