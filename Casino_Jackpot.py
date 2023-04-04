@@ -24,6 +24,7 @@ def game_Jackpot():
             elif lot1 == lot2 or lot2 == lot3 or lot1 == lot3:
                 print(f'Вы выиграли и получили {rate * 2}$')
                 money += rate * 2
+                print(f'У вас {money}')
             else:
                 pass
             if money == 0:
