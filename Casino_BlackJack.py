@@ -33,7 +33,11 @@ def check_bot(lot_bot):
 def game_BlackJack():
     global hand, total, hand_bot, total_bot
     print(f'Добро пожаловать на игру Блекджек')
-    money = int(input('Сколько у вас денег с собой? '))
+    try:    
+        money = int(input('Сколько у вас денег с собой? '))
+    except ValueError:
+        print('Введите число, а не буквы')
+        game_BlackJack()
     while True:
         if money <= 0:
             print('Деньги закончились')
@@ -42,7 +46,11 @@ def game_BlackJack():
         hand_bot = []
         total = 0
         total_bot = 0    
-        bet = int(input('Ваша ставка, если хотите уйти введите 0 '))
+        try:    
+            bet = int(input('Ваша ставка, если хотите уйти введите 0 '))
+        except ValueError:
+            print('Введите число, а не буквы')
+            continue
         if bet == 0:
             break
         money -= bet
@@ -65,6 +73,7 @@ def game_BlackJack():
                     next_lot = random.choice(cards)
                     check_card(next_lot)
                     print(f'Ваши карты {hand}. Вы набрали {total}')
+                    continue
                 elif answer == 'нет':
                     print(f'Ваши карты {hand}. Вы набрали {total}')
                 
@@ -99,7 +108,8 @@ def game_BlackJack():
                 break
             else:
                 print(f'Ваши карты {hand}. Вы набрали {total}')
+                print(f'Карты у дилера {hand_bot}. Он набрал {total_bot}')
                 print(money)
                 break
-            
+game_BlackJack()
             
