@@ -111,5 +111,4 @@ def game_BlackJack():
                 print(f'Карты у дилера {hand_bot}. Он набрал {total_bot}')
                 print(money)
                 break
-game_BlackJack()
             
