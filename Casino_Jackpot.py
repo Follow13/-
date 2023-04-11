@@ -4,9 +4,17 @@ lot = ['банан', 'клубника', 'арбуз', 'груша', 'перси
 def game_Jackpot():
     global money
     print(f'Добро пожаловать на игру джекпот')
-    money = int(input('Сколько у вас денег с собой? '))    
+    try:    
+        money = int(input('Сколько у вас денег с собой? '))
+    except ValueError:
+        print('Введите число, а не буквы') 
+        game_Jackpot()   
     while True:
-        rate = int(input('Чтобы сыграть введите стоимость ставки, если хотите уйти введите "1" '))
+        try:    
+            rate = int(input('Чтобы сыграть введите стоимость ставки, если хотите уйти введите "1" '))
+        except ValueError:
+            print('Введите число, а не буквы')
+            continue
         if rate == 1:
             break
         elif rate >= 0:
